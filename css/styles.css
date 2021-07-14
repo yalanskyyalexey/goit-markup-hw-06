@@ -17,6 +17,7 @@
 .link {
   text-decoration: none;
 }
+
 h1,
 h2,
 h3,
@@ -53,6 +54,7 @@ body {
   font-size: 14px;
   letter-spacing: 0.03em;
 }
+
 .container {
   width: 1200px;
   padding-right: 15px;
@@ -167,11 +169,13 @@ header {
 .top-contacts .link:hover,
 .top-contacts .link:focus {
   color: var(--accent-color);
+  outline: 2px solid #168beb;
 }
 
 .link:hover .item-icon,
 .link:focus .item-icon {
   fill: var(--accent-color);
+  outline: 2px solid #168beb;
 }
 
 /* hero */
@@ -386,7 +390,13 @@ header {
   fill: var(--main-bacground-color);
 }
 
-.social-item .link:hover {
+.social-item .link:focus .soc-item-icon {
+  fill: var(--main-bacground-color);
+}
+
+.social-item .link:hover,
+.social-item .link:focus {
+  outline: 1px solid var(--main-bacground-color);
   background-color: var(--accent-color);
 }
 
@@ -770,12 +780,12 @@ footer {
 .modal-title {
   font-size: 20px;
   line-height: 1.15;
+  text-align: center;
 }
 
 .modal-form .modal-title {
   margin-bottom: 12px;
   width: 100%;
-  margin-bottom: 5px;
   font-weight: 700;
   line-height: 1.15;
   letter-spacing: 0.03em;
@@ -860,9 +870,13 @@ footer {
   fill: var(--main-bacground-color);
 }
 
-.modal-form-check:checked + .modal-form-check .check__box {
+.modal-check:checked + .modal-form-check .check__box {
   border: none;
   background-color: var(--accent-color);
+}
+
+.modal-check:focus + .modal-form-check .check__box {
+  border-color: var(--accent-color);
 }
 
 .modal-form-check:checked + .modal-form-check .check__box {
@@ -906,6 +920,7 @@ footer {
 .footer-btn-modal:hover,
 .footer-btn-modal:focus {
   background-color: #188ce8;
+  outline: #168beb;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 }
 /* =============== portfolio examples ===============*/
