@@ -35,6 +35,17 @@ img {
   height: auto;
 }
 
+.visually-hidden {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+}
+
 body {
   font-family: var(--main-font);
   background-color: var(--main-background-color);
@@ -349,8 +360,6 @@ header {
 }
 
 .soc-item-icon {
-  width: 20px;
-  height: 20px;
   fill: #afb1b8;
   transition: fill 250ms var(--main-effects);
 }
@@ -506,7 +515,7 @@ footer {
   font-size: 26px;
   line-height: 1.19;
   color: var(--main-bacground-color);
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 }
 
 .footer-nav .link {
@@ -541,8 +550,7 @@ footer {
   color: var(--accent-color);
 }
 .footer-soc .soc-item-icon {
-  width: 20px;
-  height: 20px;
+  margin-bottom: 5px;
   fill: var(--main-bacground-color);
 }
 
@@ -578,13 +586,79 @@ footer {
   background-color: var(--accent-color);
 }
 
-.footer-soc h3 {
+.footer-soc b {
   text-transform: uppercase;
-  margin-bottom: 20px;
+  display: block;
+  margin-bottom: 5px;
   text-align: center;
 }
 
 .footer-right {
+  margin-left: 93px;
+}
+
+.footer-right b {
+  display: flex;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.footer-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-footer {
+  background-color: var(--footer-color);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  width: 358px;
+  font-size: 16px;
+  line-height: 1.25;
+  margin-right: 12px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+  padding: 15px;
+}
+
+.input-footer:focus {
+  border-color: var(--accent-color);
+}
+
+.footer-btn {
+  display: flex;
+  position: relative;
+  padding: 10px 28px 10px 29px;
+  border-radius: 4px;
+  width: 200px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.87;
+  letter-spacing: 0.06em;
+  border: none;
+  background-color: var(--accent-color);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  color: var(--main-bacground-color);
+  cursor: pointer;
+
+  transition: background-color 250ms var(--main-effects),
+    box-shadow 250ms var(--main-effects);
+}
+
+.footer-btn:hover,
+.footer-btn:focus {
+  background-color: #188ce8;
+}
+
+.footer-icon {
+  position: absolute;
+  top: 50%;
+  right: 30px;
+  width: 24px;
+  height: 24px;
+  margin-left: 10px;
+  transform: translateY(-50%);
+  fill: var(--main-bacground-color);
 }
 
 /* =============== portfolio main ===============*/
@@ -630,8 +704,9 @@ footer {
 .backdrop.is-hidden {
   opacity: 0;
   pointer-events: none;
+  visibility: hidden;
   transition: opacity 250ms var(--main-effects),
-    transform 250ms var(--main-effects);
+    transform 250ms var(--main-effects), visibility 250ms var(--main-effects);
 }
 
 .backdrop.is-hidden .modal {
@@ -649,7 +724,7 @@ footer {
   left: 50%;
 
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
-    0px 2px 1px rgba(0, 0, 0, 0.8);
+    0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
 
   background-color: var(--main-bacground-color);
@@ -686,6 +761,143 @@ footer {
 .modal-close:hover .close-modal-icon {
   fill: var(--accent-color);
 }
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+}
+
+.modal-form .modal-title {
+  margin-bottom: 12px;
+  width: 100%;
+  margin-bottom: 5px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: 0.03em;
+  color: var(--title-text-color);
+}
+
+.form-label:not(:last-child) {
+  font-size: 12px;
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+  color: var(--main-text-color);
+  margin-bottom: 4px;
+}
+
+.form-field {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.modal-icon {
+  position: absolute;
+  fill: var(--title-text-color);
+  display: block;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 18px;
+  width: 18px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 11px;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+  padding-left: 42px;
+
+  transition: border-color 250ms var(--main-effects);
+}
+
+.form-input:focus + .modal-icon {
+  fill: var(--accent-color);
+}
+
+.form-input:focus,
+.form-text:focus {
+  outline: none;
+  border-color: var(--accent-color);
+}
+
+.form-text {
+  padding: 12px 16px;
+  margin-bottom: 5px;
+  height: 120px;
+  resize: none;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+  color: rgba(117, 117, 117, 0.5);
+  transition: border-color 250ms var(--main-effects);
+}
+
+.modal-form-check {
+  position: relative;
+  line-height: 1.71;
+  padding-left: 36px;
+}
+
+.modal-form-check a {
+  margin-bottom: 5px;
+  color: var(--accent-color);
+}
+
+.police {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.icon-check {
+  position: absolute;
+  width: 16px;
+  height: 15px;
+  fill: var(--main-bacground-color);
+}
+
+.modal-form-check:checked + .modal-form-check .check__box{
+  border: none;
+  background-color: var(--accent-color);
+}
+
+.check__box {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+
+  width: 16px;
+  height: 15px;
+  border-radius: 2px;
+  overflow: hidden;
+  border: 2px solid var(--title-text-color);
+  border-color: var(--title-text-color);
+  transform: translateY(-50%);
+}
+
+.footer-btn-modal {
+  width: 200px;
+  padding: 10px 56px;
+  border-radius: 4px;
+  border: none;
+  font-family: var(--main-font);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.87;
+  letter-spacing: 0.06em;
+  align-self: center;
+  background: var(--accent-color);
+  color: var(--main-bacground-color);
+  cursor: pointer;
+
+  transition: background-color 250ms var(--main-effects),
+    box-shadow 250ms var(--main-effects);
+}
+
+.footer-btn-modal:hover,
+.footer-btn-modal:focus {
+  background-color: #188ce8;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 
 /* =============== portfolio examples ===============*/
 .example-card {
@@ -791,5 +1003,5 @@ footer {
 }
 
 .portfolio-card-description {
-  padding: 20px 24px;
+  margin-bottom: 5px;
 }
