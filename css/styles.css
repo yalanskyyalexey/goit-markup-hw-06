@@ -861,6 +861,11 @@ footer {
   background-color: var(--accent-color);
 }
 
+.modal-form-check:checked + .modal-form-check .check__box{
+  border: none;
+  background-color: var(--accent-color);
+}
+
 .check__box {
   position: absolute;
   top: 50%;
